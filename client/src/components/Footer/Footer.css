@@ -1,0 +1,77 @@
+.footerContainer {
+  display: flex;
+  background-color: black;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerDisclamer {
+  color: #5e5e5e;
+  font-family: "Kanit", sans-serif;
+  font-size: 10px;
+  width: 80vw;
+  margin-bottom: 50px;
+}
+
+.footerContactsTag {
+  font-family: "Kanit", sans-serif;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.footerContactsTag:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.footerContacts {
+  background-color: white;
+  border-radius: 6px;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Kanit", sans-serif;
+  font-size: 16px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-bottom: 15px;
+}
+
+.footerContactInfo {
+  margin: 0px 10px 5px 10px;
+}
+
+.footerContactsHidden {
+  display: none;
+}
+
+.footerSocialMedia {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 30px;
+  list-style: none;
+  text-align: center;
+  color: white;
+  margin: 20px;
+}
+
+.socialIcon {
+  transform: scale(1.4);
+}
+
+.socialIcon:hover {
+  transform: scale(1.43);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.footerSocialTag {
+  color: white;
+}

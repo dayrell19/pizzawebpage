@@ -1,0 +1,46 @@
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  font-family: "Kanit", sans-serif;
+  margin: 5px;
+}
+
+.aboutHistoryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aboutHistoryTitle {
+  font-size: 34px;
+  color: #4c4c4c;
+}
+
+.aboutSellingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aboutSellingTitle {
+  font-size: 34px;
+  color: #4c4c4c;
+}
+
+.aboutSelling {
+  font-size: 20px;
+  color: #4c4c4c;
+  margin-bottom: 15px;
+}
+
+.aboutTextContainer {
+  text-align: left;
+  width: 60%;
+  margin-bottom: 24px;
+}
+
+.aboutHistory {
+  font-size: 20px;
+  color: #4c4c4c;
+  margin-bottom: 15px;
+}

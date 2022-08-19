@@ -1,0 +1,82 @@
+.cardContainer {
+  height: 450px;
+  width: 290px;
+  background-color: #efefdd;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.cardImageContainer {
+  width: 280px;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  flex: 40%;
+}
+
+.cardImageContainer img {
+  transform: scale(1.25);
+}
+
+.cardTitle {
+  font-size: 21px;
+  font-family: "Kanit", sans-serif;
+}
+
+.cardText {
+  text-align: center;
+  font-family: "Kanit", sans-serif;
+  margin-top: 15px;
+}
+
+.cardPriceContainer {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  flex: 10%;
+}
+
+.cardPriceTitle {
+  font-weight: 600;
+  margin-right: 2px;
+}
+
+.cardPrice {
+  font-weight: 500;
+}
+
+.cardButton {
+  width: 220px;
+  padding: 10px;
+  margin: 15px;
+  font-size: 21px;
+  font-weight: 700;
+  font-family: "Kanit", sans-serif;
+  border: none;
+  border-radius: 7px;
+  background-color: #b21414;
+  color: white;
+}
+
+.cardButton:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.cardTextContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 30%;
+}
+
+.cardButtonContainer {
+  flex: 20%;
+}

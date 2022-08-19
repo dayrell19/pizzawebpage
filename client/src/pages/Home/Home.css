@@ -1,0 +1,47 @@
+.homeContainer {
+  background: url("../../assets/images/pexels-roman-odintsov-4553111.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: black;
+  height: 100vh;
+}
+
+.homeButtonContainer {
+  position: relative;
+  top: 35%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.homeButtonContainer button {
+  width: 220px;
+  padding: 10px;
+  margin: 15px;
+  font-size: 21px;
+  font-weight: 700;
+  font-family: "Kanit", sans-serif;
+  border: none;
+  border-radius: 7px;
+  background-color: #ffffed;
+}
+
+.homeButtonContainer button:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+#myo {
+  background-color: #b21414;
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .homeButtonContainer {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

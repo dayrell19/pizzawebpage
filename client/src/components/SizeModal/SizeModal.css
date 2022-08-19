@@ -1,0 +1,121 @@
+.sizeContainer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+}
+
+.sizeModalBlur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(200, 200, 200, 0.5);
+  z-index: 1;
+}
+
+.selectSizeContainer {
+  width: 400px;
+  height: 350px;
+  border-radius: 10px;
+  background-color: #efefdd;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  z-index: 10;
+}
+
+.sizeCloseButton {
+  flex: 15%;
+  align-items: center;
+}
+
+.sizeCloseIcon {
+  transform: scale(1.3);
+  color: black;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.sizeCloseIcon:hover {
+  transform: scale(1.4);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.sizeContentContainer {
+  flex: 65%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.sizeTitle {
+  font-family: "Kanit", sans-serif;
+  font-size: 24px;
+  font-weight: 550;
+  margin-bottom: 15px;
+}
+
+.sizeSelection {
+  font-size: 22px;
+  margin-top: 10px;
+  border: none;
+  background-color: #efefdd;
+}
+
+.sizeSelected {
+  margin-top: 10px;
+  border: none;
+  background-color: #efefdd;
+  color: blue;
+  font-size: 22px;
+}
+
+.sizeSelected:hover {
+  color: blue;
+  transform: scale(1.008);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.sizeSelection:hover {
+  color: blue;
+  transform: scale(1.008);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.sizeButtonContainer {
+  flex: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sizeButton {
+  width: 220px;
+  padding: 10px;
+  margin: 15px;
+  font-size: 21px;
+  font-weight: 700;
+  font-family: "Kanit", sans-serif;
+  border: none;
+  border-radius: 7px;
+  background-color: #b21414;
+  color: white;
+}
+
+.sizeButton:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
