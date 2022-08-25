@@ -33,7 +33,9 @@ const Order = (props: Props) => {
               </div>
             </div>
             <div className="orderButton">
-              <button className="updateButton">Change Pizza</button>
+              {props.completed == false && (
+                <button className="updateButton">Change Pizza</button>
+              )}
             </div>
           </div>
         );

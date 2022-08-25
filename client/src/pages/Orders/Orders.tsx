@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Orders.css";
 import Axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 //Import components
 import Navbar from "../../components/Navbar/Navbar";
@@ -9,20 +10,27 @@ import Order from "../../components/Order/Order";
 import { IOrder } from "../../helpers/interfaces/IOrder";
 
 const Orders = () => {
-  const [orders, setOrders] = useState<IOrder[]>([]);
+  const { data: orders } = useQuery(["getAllOrders"], (): Promise<IOrder[]> => {
+    return Axios.get("http://localhost:3001/orders/getAllOrders").then(
+      (res) => res.data
+    );
+  });
 
-  useEffect(() => {
-    Axios.get("http://localhost:3001/orders/getAllOrders").then((response) => {
-      setOrders(response.data);
-    });
-  }, [orders]);
+  if (orders?.length === 0)
+    return (
+      <div className="orderBoxFalse">
+        <p className="noOrdersText">THERE ARE NO ORDERS</p>
+      </div>
+    );
+
   return (
     <>
       <Navbar />
       <div className="ordersContainer">
-        <div className={orders.length !== 0 ? "ordersBox" : "ordersBoxFalse"}>
-          {orders.length !== 0 ? (
-            orders.map((orders: IOrder, key: number) => {
+        <div className="ordersBox">
+          {orders
+            ?.filter((order: IOrder) => !order.completed)
+            .map((orders: IOrder, key: number) => {
               return (
                 <Order
                   key={key}
@@ -31,10 +39,19 @@ const Orders = () => {
                   items={orders.items}
                 />
               );
-            })
-          ) : (
-            <p className="noOrdersText">THERE ARE NO ORDERS</p>
-          )}
+            })}
+          {orders
+            ?.filter((order: IOrder) => order.completed)
+            .map((orders: IOrder, key: number) => {
+              return (
+                <Order
+                  key={key}
+                  date={orders.date}
+                  completed={orders.completed}
+                  items={orders.items}
+                />
+              );
+            })}
         </div>
       </div>
       <Footer />
