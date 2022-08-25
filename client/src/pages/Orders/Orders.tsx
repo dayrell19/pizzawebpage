@@ -18,9 +18,15 @@ const Orders = () => {
 
   if (orders?.length === 0)
     return (
-      <div className="orderBoxFalse">
-        <p className="noOrdersText">THERE ARE NO ORDERS</p>
-      </div>
+      <>
+        <Navbar />
+        <div className="ordersContainer">
+          <div className="ordersBoxFalse">
+            <p className="noOrdersText">THERE ARE NO ORDERS</p>
+          </div>
+        </div>
+        <Footer />
+      </>
     );
 
   return (
