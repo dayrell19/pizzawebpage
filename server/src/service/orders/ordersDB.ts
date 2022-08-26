@@ -1,5 +1,5 @@
 import { OrderModel } from "../../models/OrdersSchema";
-import { IOrder } from "../../types/IOrder";
+import { IOrder, IOrderPizza } from "../../types/IOrder";
 
 export const getAllOrdersDB = async () => {
   const getAllOrders = await OrderModel.find();
@@ -13,7 +13,20 @@ export const createOrderDB = async (body: IOrder) => {
     console.log(newOrder);
     return newOrder;
   } catch (error) {
-    console.log(error);
+    console.log("createOrderDB ERROR" + error);
+    return error;
+  }
+};
+
+export const updateOrderDB = async (body: IOrder) => {
+  try {
+    const order = await OrderModel.findById(body._id);
+    if (order?.items) {
+      order.items = body.items as any;
+      await order?.save();
+    }
+  } catch (error) {
+    console.log("updateOrderDB ERROR" + error);
     return error;
   }
 };

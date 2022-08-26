@@ -1,5 +1,5 @@
 export interface IOrder {
-  id: string;
+  _id: string;
   date: string;
   completed: boolean;
   items: [IOrderPizza];
