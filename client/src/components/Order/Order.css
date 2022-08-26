@@ -98,3 +98,41 @@
   font-size: 20px;
   font-family: "Kanit", sans-serif;
 }
+
+@media screen and (max-width: 800px) {
+  .orderHeader {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: flex-start;
+  }
+
+  .orderItems {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #c4c2c2;
+    padding-top: 10px;
+  }
+
+  ..orderInfo {
+    flex: 70%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .orderButton {
+    flex: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .orderBottom {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    grid-gap: 0px;
+  }
+}
