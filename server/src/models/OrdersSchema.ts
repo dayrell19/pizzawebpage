@@ -1,12 +1,24 @@
 import mongoose from "mongoose";
 
+const IngredientSchema = new mongoose.Schema({
+  ingredient: {
+    type: String,
+    required: true,
+  },
+  count: {
+    type: Number,
+    required: true,
+    default: 1,
+  },
+});
+
 const PizzaSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
   ingredients: {
-    type: String,
+    type: [IngredientSchema],
     required: true,
   },
   price: {
@@ -27,6 +39,7 @@ const OrderSchema = new mongoose.Schema({
   completed: {
     type: Boolean,
     required: true,
+    default: false,
   },
   items: [PizzaSchema],
 });
