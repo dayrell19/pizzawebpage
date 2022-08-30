@@ -55,6 +55,8 @@
 
 .updateInfo {
   flex: 80%;
+  display: flex;
+  flex-direction: column;
 }
 
 .updateSubmitButton {
@@ -81,4 +83,47 @@
   transform: scale(1.03);
   transition: 0.2s all ease-in-out;
   cursor: pointer;
+}
+
+.updateInfoHeader {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 10px;
+  list-style: none;
+  align-items: center;
+}
+
+.updatePizzaName {
+  font-size: 23px;
+  font-family: "Kanit", sans-serif;
+  margin-left: 25px;
+}
+
+.updateDeleteIcon {
+  transform: scale(1.1);
+  color: black;
+  padding-left: 0px;
+  justify-self: center;
+}
+
+.updateDeleteIcon:hover {
+  transform: scale(1.15);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.updateInfoIngredients {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.updateIngredientsInput {
+  width: 90%;
+  height: 70px;
+  border: none;
+  border-radius: 8px;
+  overflow-x: auto;
+  overflow-y: scroll;
 }

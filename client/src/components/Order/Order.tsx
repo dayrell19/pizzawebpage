@@ -1,8 +1,9 @@
 import "./Order.css";
 import { useState } from "react";
 
-import { IOrderPizza } from "../../helpers/interfaces/IOrder";
+import { IIngredients, IOrderPizza } from "../../helpers/interfaces/IOrder";
 import UpdateModal from "../UpdateModal/UpdateModal";
+import { pizzas } from "../../storage/pizzaMenu";
 
 export interface Props {
   date: string;
@@ -29,30 +30,37 @@ const Order = (props: Props) => {
           )}
         </div>
       </div>
-      {props.items.map((pizza: IOrderPizza, key: number) => {
+      {props.items.map((pizza: any, key: number) => {
+        let ingredients = pizza.ingredients.map((element: IIngredients) => {
+          return element.ingredient;
+        });
         return (
-          <div className="orderItems">
-            <div className="orderInfo">
-              <div className="orderPizzaName">{pizza.name}</div>
-              <div className="orderPizzaIngredients">
-                Ingredients: {pizza.ingredients}
+          <>
+            <div className="orderItems">
+              <div className="orderInfo">
+                <div className="orderPizzaName">{pizza.name}</div>
+                <div className="orderPizzaIngredients">
+                  Ingredients: {ingredients.join(", ")}
+                </div>
+                <div className="orderBottom">
+                  <div className="orderPizzaSize">Size: {pizza.size}</div>
+                  <div className="orderPizzaPrice">Price: ${pizza.price}</div>
+                </div>
               </div>
-              <div className="orderBottom">
-                <div className="orderPizzaSize">Size: {pizza.size}</div>
-                <div className="orderPizzaPrice">Price: ${pizza.price}</div>
+              <div className="orderButton">
+                {props.completed == false && (
+                  <button className="updateButton" onClick={openUpdate}>
+                    Change Pizza
+                  </button>
+                )}
               </div>
             </div>
-            <div className="orderButton">
-              {props.completed == false && (
-                <button className="updateButton" onClick={openUpdate}>
-                  Change Pizza
-                </button>
-              )}
-            </div>
-          </div>
+            {updateModal && (
+              <UpdateModal setUpdateModal={setUpdateModal} pizza={pizza} />
+            )}
+          </>
         );
       })}
-      {updateModal && <UpdateModal setUpdateModal={setUpdateModal} />}
     </div>
   );
 };

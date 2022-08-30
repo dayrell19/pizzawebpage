@@ -7,7 +7,12 @@ export interface IOrder {
 
 export interface IOrderPizza {
   name: string;
-  ingredients: string;
+  ingredients: [IIngredients];
   price: number;
   size: string;
+}
+
+export interface IIngredients {
+  ingredient: string;
+  count: number;
 }
