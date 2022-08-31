@@ -2,12 +2,12 @@ export interface IOrder {
   id: string;
   date: string;
   completed: boolean;
-  items: [IOrderPizza];
+  items: IOrderPizza[];
 }
 
 export interface IOrderPizza {
   name: string;
-  ingredients: [IIngredients];
+  ingredients: IIngredients[];
   price: number;
   size: string;
 }

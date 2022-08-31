@@ -1,7 +1,11 @@
 import "./Order.css";
 import { useState } from "react";
 
-import { IIngredients, IOrderPizza } from "../../helpers/interfaces/IOrder";
+import {
+  IIngredients,
+  IOrder,
+  IOrderPizza,
+} from "../../helpers/interfaces/IOrder";
 import UpdateModal from "../UpdateModal/UpdateModal";
 import { pizzas } from "../../storage/pizzaMenu";
 
@@ -9,6 +13,7 @@ export interface Props {
   date: string;
   completed: boolean;
   items: any;
+  order: IOrder;
 }
 
 const Order = (props: Props) => {
@@ -17,7 +22,6 @@ const Order = (props: Props) => {
   const openUpdate = () => {
     setUpdateModal(true);
   };
-
   return (
     <div className="orderContainer">
       <div className="orderHeader">
@@ -56,7 +60,11 @@ const Order = (props: Props) => {
               </div>
             </div>
             {updateModal && (
-              <UpdateModal setUpdateModal={setUpdateModal} pizza={pizza} />
+              <UpdateModal
+                setUpdateModal={setUpdateModal}
+                pizza={pizza}
+                order={props.order}
+              />
             )}
           </>
         );

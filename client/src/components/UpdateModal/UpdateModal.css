@@ -23,7 +23,7 @@
 
 .updateInfoContainer {
   width: 500px;
-  height: 650px;
+  height: 550px;
   border-radius: 10px;
   background-color: #efefdd;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -86,44 +86,114 @@
 }
 
 .updateInfoHeader {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-gap: 10px;
+  display: flex;
   list-style: none;
   align-items: center;
+  justify-content: center;
+  flex: 10%;
 }
 
 .updatePizzaName {
   font-size: 23px;
   font-family: "Kanit", sans-serif;
-  margin-left: 25px;
 }
 
-.updateDeleteIcon {
-  transform: scale(1.1);
-  color: black;
-  padding-left: 0px;
-  justify-self: center;
+.updateInfoIngredients {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-auto-rows: minmax(min-content, max-content);
+  grid-gap: 10px;
+  margin-top: 10px;
+  flex-direction: column;
+  padding: 5px;
+  flex: 40%;
+  overflow-y: scroll;
+  align-items: center;
 }
 
-.updateDeleteIcon:hover {
-  transform: scale(1.15);
+.updateInfoIngredients::-webkit-scrollbar {
+  background-color: #efefdd;
+}
+
+.updateIngredients {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  margin: 20px 0px 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ingredientName {
+  font-size: 20px;
+  font-family: "Kanit", sans-serif;
+  margin-right: 10px;
+}
+
+.ingredientButton {
+  border: none;
+  transform: scale(1.8);
+  background: none;
+  margin: 5px;
+}
+
+.ingredientButton:hover {
+  transform: scale(1.9);
   transition: 0.2s all ease-in-out;
   cursor: pointer;
 }
 
-.updateInfoIngredients {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
+.ingredientCountValue {
+  font-size: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
-.updateIngredientsInput {
-  width: 90%;
-  height: 70px;
+.updateInfoSize {
+  flex: 35%;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-auto-rows: minmax(min-content, max-content);
+  grid-gap: 10px;
+}
+
+.updateSizeSelection {
+  font-size: 22px;
+  margin-top: 10px;
   border: none;
-  border-radius: 8px;
-  overflow-x: auto;
-  overflow-y: scroll;
+  background-color: #efefdd;
+}
+
+.updateSizeSelection:hover {
+  color: blue;
+  transform: scale(1.008);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.updateSizeSelected {
+  margin-top: 10px;
+  border: none;
+  background-color: #efefdd;
+  color: blue;
+  font-size: 22px;
+}
+
+.updateSizeSelected:hover {
+  color: blue;
+  transform: scale(1.008);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.updateInfoPrice {
+  flex: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+.updatedPrice {
+  font-size: 23px;
+  font-weight: 500px;
 }

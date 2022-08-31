@@ -10,7 +10,7 @@ import Order from "../../components/Order/Order";
 import { IOrder } from "../../helpers/interfaces/IOrder";
 
 const Orders = () => {
-  const { data: orders } = useQuery(["getAllOrders"], (): Promise<IOrder[]> => {
+  const { data: orders } = useQuery(["orders"], (): Promise<IOrder[]> => {
     return Axios.get("http://localhost:3001/orders/getAllOrders").then(
       (res) => res.data
     );
@@ -36,25 +36,27 @@ const Orders = () => {
         <div className="ordersBox">
           {orders
             ?.filter((order: IOrder) => !order.completed)
-            .map((orders: IOrder, key: number) => {
+            .map((order: IOrder, key: number) => {
               return (
                 <Order
                   key={key}
-                  date={orders.date}
-                  completed={orders.completed}
-                  items={orders.items}
+                  date={order.date}
+                  completed={order.completed}
+                  items={order.items}
+                  order={order}
                 />
               );
             })}
           {orders
             ?.filter((order: IOrder) => order.completed)
-            .map((orders: IOrder, key: number) => {
+            .map((order: IOrder, key: number) => {
               return (
                 <Order
                   key={key}
-                  date={orders.date}
-                  completed={orders.completed}
-                  items={orders.items}
+                  date={order.date}
+                  completed={order.completed}
+                  items={order.items}
+                  order={order}
                 />
               );
             })}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SizeModal.css";
+import { PizzaSizes } from "./models";
 
 //import Symbols
 import CloseIcon from "@mui/icons-material/Close";
@@ -10,48 +11,7 @@ export interface Props {
 }
 
 const SizeModal = (props: Props) => {
-  const [small, setSmall] = useState<boolean>(false);
-  const [medium, setMedium] = useState<boolean>(false);
-  const [large, setLarge] = useState<boolean>(false);
-  const [xlarge, setXLarge] = useState<boolean>(false);
-
-  const handleSelection = (size: string) => {
-    switch (size) {
-      case "small":
-        setSmall(!small);
-        setMedium(false);
-        setLarge(false);
-        setXLarge(false);
-        console.log(small, medium, large, xlarge);
-        break;
-      case "medium":
-        setMedium(!medium);
-        setSmall(false);
-        setLarge(false);
-        setXLarge(false);
-        console.log(small, medium, large, xlarge);
-        break;
-      case "large":
-        setLarge(!large);
-        setMedium(false);
-        setSmall(false);
-        setXLarge(false);
-        console.log(small, medium, large, xlarge);
-        break;
-      case "xlarge":
-        setXLarge(!xlarge);
-        setMedium(false);
-        setLarge(false);
-        setSmall(false);
-        console.log(small, medium, large, xlarge);
-        break;
-      default:
-        setSmall(false);
-        setMedium(false);
-        setLarge(false);
-        setXLarge(false);
-    }
-  };
+  const [pizzaSize, setPizzaSize] = useState<PizzaSizes>(PizzaSizes.Medium);
 
   const addCart = () => {
     props.setOpenModal(false);
@@ -70,33 +30,43 @@ const SizeModal = (props: Props) => {
         <div className="sizeContentContainer">
           <h3 className="sizeTitle">Select the size of your pizza below:</h3>
           <button
-            className={small ? "sizeSelected" : "sizeSelection"}
+            className={
+              pizzaSize === PizzaSizes.Small ? "sizeSelected" : "sizeSelection"
+            }
             onClick={() => {
-              handleSelection("small");
+              setPizzaSize(PizzaSizes.Small);
             }}
           >
             Small: ${props.price - 2}
           </button>
           <button
-            className={medium ? "sizeSelected" : "sizeSelection"}
+            className={
+              pizzaSize === PizzaSizes.Medium ? "sizeSelected" : "sizeSelection"
+            }
             onClick={() => {
-              handleSelection("medium");
+              setPizzaSize(PizzaSizes.Medium);
             }}
           >
             Medium: ${props.price}
           </button>
           <button
-            className={large ? "sizeSelected" : "sizeSelection"}
+            className={
+              pizzaSize === PizzaSizes.Large ? "sizeSelected" : "sizeSelection"
+            }
             onClick={() => {
-              handleSelection("large");
+              setPizzaSize(PizzaSizes.Large);
             }}
           >
             Large: ${props.price + 3}
           </button>
           <button
-            className={xlarge ? "sizeSelected" : "sizeSelection"}
+            className={
+              pizzaSize === PizzaSizes.ExtraLarge
+                ? "sizeSelected"
+                : "sizeSelection"
+            }
             onClick={() => {
-              handleSelection("xlarge");
+              setPizzaSize(PizzaSizes.ExtraLarge);
             }}
           >
             Extra Large: ${props.price + 4.5}
